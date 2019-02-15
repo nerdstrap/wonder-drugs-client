@@ -1,3 +1,31 @@
-<p>
-  documents works!
-</p>
+<div class="form-viewer">
+  <mat-card>
+
+    <mat-card-title>
+      {{ title }}
+    </mat-card-title>
+
+    <mat-card-content>
+      <table mat-table [dataSource]="documents" class="mat-elevation-z8" class="wonder-drugs-table">
+        <ng-container matColumnDef="documentNumber">
+          <th mat-header-cell *matHeaderCellDef> Document Number<br/>FileName </th>
+          <td mat-cell *matCellDef="let document"> {{document.document.document_number__v}}<br/>{{document.document.filename__v}} </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type<br/>Subtype </th>
+          <td mat-cell *matCellDef="let document"> {{document.document.type__v}}<br/>{{document.document.subtype__v}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let document"> {{document.document.status__v}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true" ></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+      </table>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a mat-raised-button color="primary" routerLink="/import-document">Import Document</a>
+    </mat-card-actions>
+
+  </mat-card>

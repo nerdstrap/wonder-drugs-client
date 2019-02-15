@@ -1,10 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <a mat-button routerLink="/home">Wonder Drugs</a>
-      <span class="toolbar-spacer"></span>
-      <a mat-button routerLink="/login">Logout</a>
-      <mat-icon class="toolbar-icon">verified_user</mat-icon>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <router-outlet></router-outlet>
+  <mat-toolbar-row>
+    <a mat-button routerLink="/documents">
+      <mat-icon>local_pharmacy</mat-icon>
+      Wonder Drugs
+    </a>
+    <a mat-button routerLink="/documents">Vault Documents</a>
+    <span class="toolbar-spacer"></span>
+    <a mat-button routerLink="/login">Logout</a>
+    <mat-icon class="toolbar-icon">verified_user</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

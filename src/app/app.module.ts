@@ -12,9 +12,8 @@ import { CustomMaterialModule } from "./material.module";
 import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
 import { DocumentsComponent } from './documents/documents.component';
+import { ImportDocumentComponent } from './import-document/import-document.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +21,8 @@ import { DocumentsComponent } from './documents/documents.component';
     FileSelectDirective,
     FileDropDirective,
     LoginComponent,
-    HomeComponent,
-    FileUploadComponent,
-    DocumentsComponent
+    DocumentsComponent,
+    ImportDocumentComponent
   ],
   imports: [
     BrowserModule,

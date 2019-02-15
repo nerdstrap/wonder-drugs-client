@@ -3,8 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 const API_URL = 'http://localhost:3100'
-// const API_URL = 'https://vv-consulting-candidate-rd-exercise22.veevavault.com/api/v19.1';
-const MY_USERNAME = 'rd_candidate22@vv-consulting.com';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {

@@ -1,0 +1,111 @@
+<div class="form-viewer">
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <mat-card>
+        
+        <mat-card-title>
+          {{ title }}
+        </mat-card-title>
+  
+        <mat-card-content class="wonder-drugs-form">
+  
+          <mat-form-field>
+            <mat-label>Select Document Type</mat-label>
+            <mat-select formControlName="type" (selectionChange)="onTypeSelectionChange($event)"
+              [(value)]="selectedDocumentType" required>
+              <mat-option *ngFor="let type of documentTypes" [value]="type.value">
+                {{type.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Select Document Subtype</mat-label>
+            <mat-select formControlName="subtype" (selectionChange)="onSubtypeSelectionChange($event)"
+              [(value)]="selectedDocumentSubtype" required>
+              <mat-option *ngFor="let subtype of documentSubtypes" [value]="subtype.value">
+                {{subtype.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Select Document Lifecycle</mat-label>
+            <mat-select formControlName="lifecycle" [(value)]="selectedDocumentLifecycle" required>
+              <mat-option *ngFor="let lifecycle of documentLifecycles" [value]="lifecycle.name">
+                {{lifecycle.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country" [(value)]="selectedCountry" required>
+              <mat-option *ngFor="let data of countryRecords" [value]="data.id">
+                {{data.name__v}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Facility</mat-label>
+            <mat-select formControlName="facility" [(value)]="selectedFacility" required>
+              <mat-option *ngFor="let data of facilityRecords" [value]="data.id">
+                {{data.name__v}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Department</mat-label>
+            <mat-select formControlName="department" [(value)]="selectedDepartment" required>
+              <mat-option *ngFor="let data of departmentRecords" [value]="data.id">
+                {{data.name__v}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" formControlName="approvedDate" placeholder="Approved Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+  
+          <input formControlName="document" type="file" ng2FileSelect [uploader]="uploader" />
+  
+          <div class="drop-zone">
+            <div ng2FileDrop [uploader]="uploader" class="drop-zone">
+              Drag and drop files to upload
+            </div>
+          </div>
+  
+          <table>
+            <thead>
+              <tr>
+                <th width="90%">
+                  File Name
+                </th>
+                <th width="10%">
+                  Remove
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of uploader.queue">
+                <th width="90%">
+                  {{ item.file.name}}({{item.file.size/1000000}} MB)
+                </th>
+                <th class="text-center" width="10%">
+                  <mat-icon (click)="item.remove()">delete</mat-icon>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+  
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">Upload</button>
+        </mat-card-actions>
+  
+      </mat-card>
+    </form>
+  </div>

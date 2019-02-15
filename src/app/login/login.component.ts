@@ -29,8 +29,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService.logout();
 
     // get return url from route parameters or default to '/fileupload'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/fileupload';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/documents';
   }
+
+  title: string = 'Login';
 
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
